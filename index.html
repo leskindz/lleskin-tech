@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>LLESKIN TECH ⭐ PREMIUM STORE</title>
+    <style>
+        :root { --neon: #00f2ff; --wa-green: #25d366; }
+        
+        body { 
+            background: radial-gradient(circle at top, #0d1117 0%, #010409 100%); 
+            color: white; font-family: 'Segoe UI', sans-serif; 
+            text-align: center; margin: 0; padding-top: 90px; padding-bottom: 50px;
+        }
+
+        /* NAVBAR ESTILO PREMIUM */
+        .navbar {
+            position: fixed; top: 0; left: 0; width: 100%; height: 75px;
+            background: rgba(13, 17, 23, 0.95); backdrop-filter: blur(12px);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 5%; box-sizing: border-box; z-index: 1000;
+            border-bottom: 1px solid rgba(0, 242, 255, 0.2);
+        }
+
+        .logo { font-size: 1.6rem; font-weight: bold; color: var(--neon); text-shadow: 0 0 15px var(--neon); }
+        
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { color: #8b949e; text-decoration: none; font-size: 0.95rem; transition: 0.3s; }
+        .nav-links a:hover { color: white; }
+
+        .btn-wa-top {
+            background: var(--wa-green); color: white; padding: 10px 22px;
+            border-radius: 8px; text-decoration: none; font-weight: bold;
+            display: flex; align-items: center; gap: 8px; font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        /* GRID Y TARJETAS */
+        .grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; padding: 20px; }
+        .card { 
+            background: rgba(22, 27, 34, 0.7); border: 1px solid #30363d; 
+            border-radius: 18px; width: 320px; overflow: hidden; transition: 0.4s;
+        }
+        .card:hover { border-color: var(--neon); transform: translateY(-8px); box-shadow: 0 8px 25px rgba(0, 242, 255, 0.15); }
+        
+        img { width: 100%; height: 170px; object-fit: cover; }
+        .info { padding: 15px; text-align: left; }
+        .info h3 { margin: 0; font-size: 1.1rem; color: #f0f6fc; }
+
+        .price-box { 
+            display: flex; justify-content: space-between; background: rgba(0,0,0,0.5); 
+            padding: 12px; border-radius: 10px; margin: 12px 0; border: 1px solid #333;
+        }
+        .soles { color: #e3b341; font-weight: bold; font-size: 1.1rem; }
+        .usdt { color: #39ff14; font-weight: bold; font-size: 1.1rem; }
+
+        .btn-group { display: flex; flex-direction: column; gap: 8px; padding: 0 15px 15px 15px; }
+        .btn { padding: 13px; border-radius: 8px; text-decoration: none; font-size: 0.9rem; font-weight: bold; border: 1px solid rgba(255,255,255,0.1); text-align: center; transition: 0.3s; cursor: pointer; }
+        
+        .btn-buy { background: var(--neon); color: #000; }
+        .btn-sub { background: rgba(255,255,255,0.05); color: #8b949e; }
+        .btn-desc { background: transparent; color: var(--neon); border-color: var(--neon); }
+
+        /* MODALES ADAPTABLES (TEXTO COMPLETO) */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.96); overflow-y: auto; }
+        .modal-content { 
+            background: #161b22; margin: 4% auto; padding: 35px; border: 2px solid var(--neon); 
+            width: 90%; max-width: 650px; border-radius: 20px; text-align: left; box-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
+        }
+        .modal-content h3 { text-align: center; color: var(--neon); margin-top: 0; font-size: 1.8rem; border-bottom: 1px solid #333; padding-bottom: 15px; }
+        .modal-body { font-size: 1.2rem; line-height: 1.7; color: #f0f6fc; white-space: pre-line; margin: 20px 0; }
+        .cerrar { color: #8b949e; float: right; cursor: pointer; font-size: 40px; margin-top: -25px; }
+        .btn-ok { display: block; width: 100%; margin-top: 25px; background: var(--neon); color: black; border: none; padding: 16px; border-radius: 12px; font-weight: bold; cursor: pointer; font-size: 1.1rem; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">⭐ LLESKIN TECH</div>
+        <div class="nav-links">
+            <a href="#">Inicio</a>
+            <a href="#" style="color:white; border-bottom: 2px solid var(--neon); padding-bottom: 5px;">Productos</a>
+            <a href="#">Contacto</a>
+        </div>
+        <a href="https://wa.me/51989310143" target="_blank" class="btn-wa-top">WhatsApp</a>
+    </nav>
+
+    <p style="color: #8b949e; margin-top: 10px;">Soluciones digitales de calidad premium, disponibles al instante</p>
+
+    <div class="grid">
+        <div class="card">
+            <img src="p1.png">
+            <div class="info"><h3>Seguidores SMM Panel</h3><div class="price-box"><span class="soles">S/ 20</span><span class="usdt">8 USDT</span></div></div>
+            <div class="btn-group">
+                <a href="https://wa.me/51989310143?text=Hola%20LLESKIN%20TECH,%20deseo%20comprar%20acceso%20a%20Paneles%20SMM" target="_blank" class="btn btn-buy">🛒 COMPRAR</a>
+                <div class="btn btn-sub" onclick="abrirModal('pago')">💳 Métodos de pago</div>
+                <div class="btn btn-desc" onclick="abrirModal('desc1')">📄 Descripción</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="p2.png">
+            <div class="info"><h3>Método Diamantes FF</h3><div class="price-box"><span class="soles">S/ 15</span><span class="usdt">6 USDT</span></div></div>
+            <div class="btn-group">
+                <a href="https://wa.me/51989310143?text=Hola%20LLESKIN%20TECH,%20deseo%20el%20Método%20Diamantes%20FF" target="_blank" class="btn btn-buy">🛒 COMPRAR</a>
+                <div class="btn btn-sub" onclick="abrirModal('pago')">💳 Métodos de pago</div>
+                <div class="btn btn-desc" onclick="abrirModal('desc2')">📄 Descripción</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="p3.png">
+            <div class="info"><h3>YouTube Premium</h3><div class="price-box"><span class="soles">S/ 11</span><span class="usdt">4 USDT</span></div></div>
+            <div class="btn-group">
+                <a href="https://wa.me/51989310143?text=Hola%20LLESKIN%20TECH,%20deseo%20YouTube%20Premium" target="_blank" class="btn btn-buy">🛒 COMPRAR</a>
+                <div class="btn btn-sub" onclick="abrirModal('pago')">💳 Métodos de pago</div>
+                <div class="btn btn-desc" onclick="abrirModal('desc3')">📄 Descripción</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="p4.png">
+            <div class="info"><h3>Canva Pro 3 Años</h3><div class="price-box"><span class="soles">S/ 7</span><span class="usdt">3 USDT</span></div></div>
+            <div class="btn-group">
+                <a href="https://wa.me/51989310143?text=Hola%20LLESKIN%20TECH,%20deseo%20Canva%20Pro%203%20Años" target="_blank" class="btn btn-buy">🛒 COMPRAR</a>
+                <div class="btn btn-sub" onclick="abrirModal('pago')">💳 Métodos de pago</div>
+                <div class="btn btn-desc" onclick="abrirModal('desc4')">📄 Descripción</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="p5.png">
+            <div class="info"><h3>Gana Dinero / 13 Págs</h3><div class="price-box"><span class="soles">S/ 25</span><span class="usdt">10 USDT</span></div></div>
+            <div class="btn-group">
+                <a href="https://wa.me/51989310143?text=Hola%20LLESKIN%20TECH,%20deseo%20Gana%20Dinero" target="_blank" class="btn btn-buy">🛒 COMPRAR</a>
+                <div class="btn btn-sub" onclick="abrirModal('pago')">💳 Métodos de pago</div>
+                <div class="btn btn-desc" onclick="abrirModal('desc5')">📄 Descripción</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="p6.png">
+            <div class="info"><h3>Método YT Completo</h3><div class="price-box"><span class="soles">S/ 25</span><span class="usdt">10 USDT</span></div></div>
+            <div class="btn-group">
+                <a href="https://wa.me/51989310143?text=Hola%20LLESKIN%20TECH,%20deseo%20el%20Método%20YT%20Completo" target="_blank" class="btn btn-buy">🛒 COMPRAR</a>
+                <div class="btn btn-sub" onclick="abrirModal('pago')">💳 Métodos de pago</div>
+                <div class="btn btn-desc" onclick="abrirModal('desc6')">📄 Descripción</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pago" class="modal"><div class="modal-content"><span class="cerrar" onclick="cerrarModal('pago')">&times;</span><h3>MÉTODOS DE PAGO</h3><div class="modal-body">📱 <b>Yape / Plin:</b> Al WhatsApp<br>💜 <b>Prex PE:</b> Solicitar datos<br>💙 <b>PayPal / 💰 Binance:</b> Aceptados</div><button class="btn-ok" onclick="cerrarModal('pago')">ENTENDIDO</button></div></div>
+
+    <div id="desc1" class="modal"><div class="modal-content"><span class="cerrar" onclick="cerrarModal('desc1')">&times;</span><h3>PANELES SMM</h3><div class="modal-body">Paneles de seguidores (like,vistas,comentarios) tiktok,facebook,instagram,kick, youtube.
+
+Para empezar no solo te daré acceso a un panel de seguidores, sino a 3 paneles diferentes con precios diferentes. Tendrás videos tutoriales de como recargar créditos al panel (mínimo $2 o S/ 7). También tendrás video tutorial de como mandar seguidores a las diferentes paginas.
+
+⚠️ Importante: el uso del panel queda bajo su total responsabilidad 🧾.</div><button class="btn-ok" onclick="cerrarModal('desc1')">CERRAR</button></div></div>
+
+    <div id="desc2" class="modal"><div class="modal-content"><span class="cerrar" onclick="cerrarModal('desc2')">&times;</span><h3>MÉTODO DIAMANTES FF</h3><div class="modal-body">Método Diamantes y PB. OJO ESTO ES METODO YO NO HAGO RECARGAS❗
+
+💎 Política de Uso del Descuento del 50% 💎
+Puntos Clave:
+- El descuento del 50% solo se puede aplicar UNA SOLA VEZ por cada monto de compra y por cada ID de usuario.
+- Una vez que un ID de usuario ha comprado un monto específico con el 50% de descuento, ya no podrá volver a aplicarlo para ese mismo monto.
+- Sí puede aplicar el 50% de descuento en montos diferentes de compra.</div><button class="btn-ok" onclick="cerrarModal('desc2')">CERRAR</button></div></div>
+
+    <div id="desc3" class="modal"><div class="modal-content"><span class="cerrar" onclick="cerrarModal('desc3')">&times;</span><h3>YOUTUBE PREMIUM</h3><div class="modal-body">YouTube Premium (FAMILIAR) ⚖️ Condiciones de Uso – YouTube Premium Familiar + YouTube Music
+
+✅ Duración: Suscripción válida por 30 días desde la activación.
+✅ Uso responsable: Prohibido modificar la cuenta. El mal uso anula la garantía.
+✅ Renovación: No automática; debe solicitarse nuevamente al finalizar el mes.
+✅ Seguridad: Usa un correo nuevo o secundario, sin datos personales.
+✅ Privacidad: Tu información solo se usa para la activación.
+✅ Responsabilidad: El proveedor no se hace responsable por acciones del cliente tras la activación.</div><button class="btn-ok" onclick="cerrarModal('desc3')">CERRAR</button></div></div>
+
+    <div id="desc4" class="modal"><div class="modal-content"><span class="cerrar" onclick="cerrarModal('desc4')">&times;</span><h3>CANVA PRO 3 AÑOS</h3><div class="modal-body">Canva PRO - personal / 3 años Activación solo con tu correo!!
+Acceso inmediato · Entrega digital.
+
+- Habilitar el modo PRO hasta un máximo de 500 personas por 3 años.
+- IA de un clic: Borra fondos, elimina objetos y cambia el tamaño automáticamente.
+- Contenido Total: Uso ilimitado de 100 millones de fotos, videos y audios sin marcas de agua.
+- Potencia de Archivo: 1 TB de espacio y descargas en máxima calidad.
+- Asistente Inteligente: Redacción automática de textos y programación de publicaciones.</div><button class="btn-ok" onclick="cerrarModal('desc4')">CERRAR</button></div></div>
+
+    <div id="desc5" class="modal"><div class="modal-content"><span class="cerrar" onclick="cerrarModal('desc5')">&times;</span><h3>GANA DINERO</h3><div class="modal-body">Acceso exclusivo a 13 plataformas oficiales para adquirir suscripciones y licencias a precio de costo mayorista. Ideal para consumo personal o para iniciar tu propio negocio de reventa digital con alta rentabilidad.
+
+Puntos Clave:
+- Streaming Premium: Netflix, Disney+, HBO, Spotify y plataformas de IA como ChatGPT Plus, CapCut.
+- Gaming & Software: Licencias de Windows, Office, juegos de Steam y recargas de diamantes.
+- Seguridad & Ahorro: Compra directa a proveedores verificados mediante Binance USDT y métodos locales.
+- Uso Profesional: VPN y suscripciones de alta demanda global. Con sistema de reseñas y calificaciones.</div><button class="btn-ok" onclick="cerrarModal('desc5')">CERRAR</button></div></div>
+
+    <div id="desc6" class="modal"><div class="modal-content"><span class="cerrar" onclick="cerrarModal('desc6')">&times;</span><h3>MÉTODO YT COMPLETO</h3><div class="modal-body">💎 MÉTODO YOUTUBE PREMIUM - CUENTA COMPLETA 💎
+¡Toma el control total y saca tus propias cuentas sin depender de nadie! 🚀
+
+Con este método exclusivo de LLESKIN TECH, obtendrás la capacidad de generar cuentas familiares completas de manera ilimitada.
+
+🔴 ¿QUÉ LOGRARÁS?
+- Autonomía Total: Crea tus propias cuentas desde cero. ¡Sé tu propio proveedor!
+- Activación a Clientes: Activa cuentas directamente a los correos de tus clientes.
+- Máximo Ahorro: El costo más bajo del mercado.
+
+📦 CARACTERÍSTICAS:
+- Plan Familiar Master: Invita hasta 5 correos adicionales.
+- YouTube Music Incluido: Música sin anuncios, en segundo plano y descargas.
+- Cero Anuncios: Smart TV, Celulares, PC, Tablets y Consolas.</div><button class="btn-ok" onclick="cerrarModal('desc6')">CERRAR</button></div></div>
+
+    <script>
+        function abrirModal(id) { document.getElementById(id).style.display = "block"; }
+        function cerrarModal(id) { document.getElementById(id).style.display = "none"; }
+        window.onclick = function(event) { if (event.target.className === 'modal') { event.target.style.display = "none"; } }
+    </script>
+</body>
+</html>

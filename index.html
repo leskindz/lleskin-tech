@@ -4,226 +4,790 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LLESKIN TECH ⭐ PREMIUM STORE</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        :root { --neon-blue: #00f2ff; --neon-green: #39ff14; --dark-bg: #010409; --card-bg: #0d1117; }
-        body {
-            background-color: var(--dark-bg);
-            background-image: linear-gradient(0deg, transparent 24%, rgba(0, 242, 255, .05) 25%, rgba(0, 242, 255, .05) 26%, transparent 27%, transparent 74%, rgba(0, 242, 255, .05) 75%, rgba(0, 242, 255, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(0, 242, 255, .05) 25%, rgba(0, 242, 255, .05) 26%, transparent 27%, transparent 74%, rgba(0, 242, 255, .05) 75%, rgba(0, 242, 255, .05) 76%, transparent 77%, transparent);
-            background-size: 50px 50px; color: #f0f6fc; font-family: 'Rajdhani', sans-serif; margin: 0; padding: 0;
+        :root {
+            --primary: #ff6b00;
+            --secondary: #ffcc00;
+            --accent: #00e5ff;
+            --green: #00ff88;
+            --pink: #ff2d78;
+            --dark: #07080f;
+            --card-bg: #0e1020;
+            --card-border: #1e2240;
         }
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
-        .badge { border: 2px solid var(--neon-blue); border-radius: 50px; padding: 10px 25px; color: var(--neon-blue); font-family: 'Orbitron'; font-size: 0.8rem; margin-bottom: 20px; box-shadow: 0 0 15px rgba(0, 242, 255, 0.3); }
-        .main-title { font-family: 'Orbitron'; font-size: 3.5rem; margin: 0; background: linear-gradient(180deg, #fff 0%, var(--neon-blue) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero-btns { display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 300px; margin-top: 40px; }
-        .btn-pro { font-weight: 700; padding: 15px; border-radius: 10px; text-decoration: none; text-align: center; }
-        .btn-blue { background: linear-gradient(135deg, #00d2ff, #3a7bd5); color: white; }
-        .btn-green { background: linear-gradient(135deg, #25d366, #128c7e); color: white; }
-        .products-section { padding: 60px 20px; background: rgba(13, 17, 23, 0.6); }
-        .products-grid { display: grid; grid-template-columns: 1fr; gap: 25px; max-width: 1100px; margin: 0 auto; }
-        .product-card { background: var(--card-bg); border: 1px solid rgba(0, 242, 255, 0.1); border-radius: 20px; padding: 20px; transition: 0.3s; }
-        .product-card:hover { border-color: var(--neon-blue); transform: translateY(-5px); }
-        .product-img { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1); }
-        .price-tier { display: flex; background: rgba(0,0,0,0.4); border-radius: 10px; padding: 12px; margin-bottom: 20px; justify-content: center; align-items: center; border: 1px solid #333; }
-        .price-box { font-family: 'Orbitron'; font-size: 1.2rem; font-weight: bold; }
-        .price-soles { color: #ffcc00; }
-        .price-usdt { color: var(--neon-green); }
-        .card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .btn-card { font-weight: 600; padding: 10px; border-radius: 8px; text-align: center; text-decoration: none; text-transform: uppercase; font-size: 0.8rem; border: 1px solid #333; color: #8b949e; cursor: pointer; }
-        .btn-buy-card { border: 2px solid var(--neon-blue); color: var(--neon-blue); }
-        .btn-desc-card { grid-column: 1 / -1; background: rgba(0, 242, 255, 0.05); color: var(--neon-blue); border-color: rgba(0, 242, 255, 0.3); }
-        .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); backdrop-filter: blur(8px); }
-        .modal-content { background: var(--card-bg); margin: 12% auto; padding: 30px; border: 2px solid var(--neon-blue); width: 85%; max-width: 450px; border-radius: 25px; position: relative; box-shadow: 0 0 30px rgba(0, 242, 255, 0.2); }
-        .modal-body { color: #d1d5db; line-height: 1.6; white-space: pre-line; font-size: 1.05rem; }
-        .btn-close { width: 100%; margin-top: 20px; padding: 15px; background: var(--neon-blue); border: none; border-radius: 12px; font-weight: bold; font-family: 'Orbitron'; cursor: pointer; }
-        @media (min-width: 768px) { .products-grid { grid-template-columns: repeat(2, 1fr); } .hero-btns { flex-direction: row; max-width: 500px; } }
-        @media (min-width: 1024px) { .products-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--dark);
+            color: #f0f4ff;
+            font-family: 'Exo 2', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 50% 40%, rgba(255,107,0,0.18) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 50% at 20% 80%, rgba(0,229,255,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 80% 10%, rgba(255,45,120,0.12) 0%, transparent 60%);
+            z-index: 0;
+        }
+
+        /* animated grid background */
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,107,0,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,107,0,0.04) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 0;
+        }
+
+        .hero > * { position: relative; z-index: 1; }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1.5px solid var(--primary);
+            border-radius: 50px;
+            padding: 8px 22px;
+            color: var(--primary);
+            font-family: 'Exo 2';
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+            background: rgba(255,107,0,0.08);
+            animation: fadeDown 0.8s ease both;
+        }
+
+        .badge-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%,100% { box-shadow: 0 0 0 0 rgba(255,107,0,0.7); }
+            50% { box-shadow: 0 0 0 6px rgba(255,107,0,0); }
+        }
+
+        .hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3.5rem, 14vw, 7rem);
+            line-height: 0.9;
+            letter-spacing: 4px;
+            animation: fadeDown 0.9s ease 0.1s both;
+        }
+
+        .hero-title .line1 { color: #fff; display: block; }
+        .hero-title .line2 {
+            display: block;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-sub {
+            font-size: 1rem;
+            color: rgba(200,210,255,0.7);
+            margin-top: 16px;
+            letter-spacing: 1px;
+            animation: fadeDown 1s ease 0.2s both;
+        }
+
+        .hero-tagline {
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-top: 8px;
+            animation: fadeDown 1s ease 0.3s both;
+        }
+
+        .hero-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            width: 100%;
+            max-width: 320px;
+            margin-top: 40px;
+            animation: fadeDown 1s ease 0.4s both;
+        }
+
+        .btn-hero {
+            padding: 16px 24px;
+            border-radius: 14px;
+            font-family: 'Exo 2';
+            font-weight: 800;
+            font-size: 1rem;
+            text-decoration: none;
+            text-align: center;
+            letter-spacing: 1px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-hero:hover { transform: translateY(-3px); }
+
+        .btn-orange {
+            background: linear-gradient(135deg, var(--primary), #ff9500);
+            color: #fff;
+            box-shadow: 0 8px 30px rgba(255,107,0,0.4);
+        }
+        .btn-orange:hover { box-shadow: 0 12px 40px rgba(255,107,0,0.6); }
+
+        .btn-wa {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: #fff;
+            box-shadow: 0 8px 30px rgba(37,211,102,0.3);
+        }
+        .btn-wa:hover { box-shadow: 0 12px 40px rgba(37,211,102,0.5); }
+
+        /* scroll indicator */
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            color: rgba(255,255,255,0.3);
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            animation: fadeDown 1s ease 0.8s both;
+        }
+
+        .scroll-arrow {
+            width: 20px; height: 20px;
+            border-right: 2px solid rgba(255,107,0,0.5);
+            border-bottom: 2px solid rgba(255,107,0,0.5);
+            transform: rotate(45deg);
+            animation: bounceDown 1.5s infinite;
+        }
+
+        @keyframes bounceDown {
+            0%,100% { transform: rotate(45deg) translateY(0); }
+            50% { transform: rotate(45deg) translateY(5px); }
+        }
+
+        /* ========== PRODUCTS SECTION ========== */
+        .products-section {
+            padding: 70px 20px 80px;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 7vw, 3.5rem);
+            letter-spacing: 3px;
+        }
+
+        .section-title span { color: var(--primary); }
+
+        .section-line {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 22px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* ========== PRODUCT CARD ========== */
+        .product-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(255,107,0,0.05), transparent 60%);
+            pointer-events: none;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 50px rgba(255,107,0,0.2);
+        }
+
+        .card-img-wrap {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s;
+        }
+
+        .product-card:hover .product-img { transform: scale(1.05); }
+
+        .card-body { padding: 18px; }
+
+        .card-title {
+            font-family: 'Exo 2';
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .card-subtitle {
+            font-size: 0.75rem;
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .price-tier {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,107,0,0.2);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 16px;
+        }
+
+        .price-box {
+            font-family: 'Bebas Neue';
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+        }
+
+        .price-soles { color: var(--secondary); }
+        .price-usdt { color: var(--green); }
+        .price-sep { color: #333; font-size: 1.2rem; }
+
+        .card-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .btn-card {
+            padding: 10px 8px;
+            border-radius: 10px;
+            font-family: 'Exo 2';
+            font-weight: 700;
+            font-size: 0.78rem;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+
+        .btn-card:hover { transform: translateY(-2px); }
+
+        .btn-buy {
+            background: linear-gradient(135deg, var(--primary), #ff9500);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(255,107,0,0.3);
+        }
+
+        .btn-buy:hover { box-shadow: 0 6px 20px rgba(255,107,0,0.5); }
+
+        .btn-pay {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12) !important;
+            color: rgba(200,210,255,0.8);
+        }
+
+        .btn-desc {
+            grid-column: 1 / -1;
+            background: rgba(0,229,255,0.07);
+            border: 1px solid rgba(0,229,255,0.25) !important;
+            color: var(--accent);
+        }
+
+        .btn-desc:hover { background: rgba(0,229,255,0.12); }
+
+        /* ========== MODALS ========== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            inset: 0;
+            background: rgba(0,0,0,0.92);
+            backdrop-filter: blur(10px);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal.active { display: flex; }
+
+        .modal-content {
+            background: var(--card-bg);
+            border: 2px solid var(--primary);
+            width: 100%;
+            max-width: 460px;
+            border-radius: 24px;
+            padding: 30px 26px;
+            position: relative;
+            box-shadow: 0 0 60px rgba(255,107,0,0.25);
+            animation: modalIn 0.3s ease;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        @keyframes modalIn {
+            from { transform: scale(0.9) translateY(20px); opacity: 0; }
+            to { transform: scale(1) translateY(0); opacity: 1; }
+        }
+
+        .modal-title {
+            font-family: 'Bebas Neue';
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .modal-body {
+            color: #c8d0e8;
+            line-height: 1.7;
+            font-size: 0.95rem;
+            white-space: pre-line;
+        }
+
+        .btn-close-modal {
+            width: 100%;
+            margin-top: 22px;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--primary), #ff9500);
+            border: none;
+            border-radius: 12px;
+            font-family: 'Bebas Neue';
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            color: #fff;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .btn-close-modal:hover { opacity: 0.85; }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid var(--card-border);
+            color: rgba(200,210,255,0.3);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .footer span { color: var(--primary); }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (min-width: 600px) {
+            .hero-btns { flex-direction: row; max-width: 480px; }
+        }
+
+        @media (min-width: 768px) {
+            .products-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 1024px) {
+            .products-grid { grid-template-columns: repeat(3, 1fr); }
+        }
     </style>
 </head>
 <body>
-    <section class="hero">
-        <div class="badge">• PRODUCTOS DIGITALES PREMIUM</div>
-        <h1 class="main-title">LLESKIN TECH</h1>
-        <div class="hero-btns">
-            <a href="#productos" class="btn-pro btn-blue">👁️ Ver productos</a>
-            <a href="https://wa.me/51989310143" target="_blank" class="btn-pro btn-green">💬 WhatsApp</a>
-        </div>
-    </section>
 
-    <section id="productos" class="products-section">
-        <div class="products-grid">
-            <div class="product-card">
-                <img src="p1.png" class="product-img">
-                <h3>Seguidores SMM Panel</h3>
-                <div class="price-tier"><span class="price-box price-soles">S/ 20</span><span style="margin:0 15px; color:#555">ó</span><span class="price-box price-usdt">8 USDT</span></div>
-                <div class="card-actions">
-                    <a href="https://wa.me/51989310143?text=Comprar%20SMM" class="btn-card btn-buy-card">🛒 Comprar</a>
-                    <div class="btn-card" onclick="openM('pago')">💳 Pagos</div>
-                    <div class="btn-card btn-desc-card" onclick="openM('d1')">📄 Descripción Completa</div>
-                </div>
+<!-- ========== HERO ========== -->
+<section class="hero">
+    <div class="badge">
+        <span class="badge-dot"></span>
+        PRODUCTOS DIGITALES PREMIUM
+    </div>
+
+    <h1 class="hero-title">
+        <span class="line1">LLESKIN</span>
+        <span class="line2">TECH</span>
+    </h1>
+
+    <p class="hero-sub">Tu tienda de productos digitales</p>
+    <p class="hero-tagline">La mejor opción en soluciones digitales</p>
+
+    <div class="hero-btns">
+        <a href="#productos" class="btn-hero btn-orange">👁️ Ver Productos</a>
+        <a href="https://wa.me/51989310143" target="_blank" class="btn-hero btn-wa">💬 WhatsApp</a>
+    </div>
+
+    <div class="scroll-hint">
+        <span>SCROLL</span>
+        <div class="scroll-arrow"></div>
+    </div>
+</section>
+
+<!-- ========== PRODUCTS ========== -->
+<section id="productos" class="products-section">
+    <div class="section-header">
+        <h2 class="section-title">Nuestros <span>Productos</span></h2>
+        <div class="section-line"></div>
+    </div>
+
+    <div class="products-grid">
+
+        <!-- Producto 1 -->
+        <div class="product-card">
+            <div class="card-img-wrap">
+                <img src="p1.png" class="product-img" alt="Seguidores SMM Panel">
             </div>
-            <div class="product-card">
-                <img src="p2.png" class="product-img">
-                <h3>Método Diamantes FF</h3>
-                <div class="price-tier"><span class="price-box price-soles">S/ 15</span><span style="margin:0 15px; color:#555">ó</span><span class="price-box price-usdt">6 USDT</span></div>
-                <div class="card-actions">
-                    <a href="https://wa.me/51989310143?text=Comprar%20FF" class="btn-card btn-buy-card">🛒 Comprar</a>
-                    <div class="btn-card" onclick="openM('pago')">💳 Pagos</div>
-                    <div class="btn-card btn-desc-card" onclick="openM('d2')">📄 Descripción Completa</div>
+            <div class="card-body">
+                <div class="card-title">Seguidores SMM Panel</div>
+                <div class="price-tier">
+                    <span class="price-box price-soles">S/ 20</span>
+                    <span class="price-sep">ó</span>
+                    <span class="price-box price-usdt">8 USDT</span>
                 </div>
-            </div>
-            <div class="product-card">
-                <img src="p3.png" class="product-img">
-                <h3>YouTube Premium</h3>
-                <div class="price-tier"><span class="price-box price-soles">S/ 11</span><span style="margin:0 15px; color:#555">ó</span><span class="price-box price-usdt">4 USDT</span></div>
                 <div class="card-actions">
-                    <a href="https://wa.me/51989310143?text=Comprar%20YT" class="btn-card btn-buy-card">🛒 Comprar</a>
-                    <div class="btn-card" onclick="openM('pago')">💳 Pagos</div>
-                    <div class="btn-card btn-desc-card" onclick="openM('d3')">📄 Descripción Completa</div>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="p4.png" class="product-img">
-                <h3>Canva Pro 3 Años</h3>
-                <div class="price-tier"><span class="price-box price-soles">S/ 7</span><span style="margin:0 15px; color:#555">ó</span><span class="price-box price-usdt">3 USDT</span></div>
-                <div class="card-actions">
-                    <a href="https://wa.me/51989310143?text=Comprar%20Canva" class="btn-card btn-buy-card">🛒 Comprar</a>
-                    <div class="btn-card" onclick="openM('pago')">💳 Pagos</div>
-                    <div class="btn-card btn-desc-card" onclick="openM('d4')">📄 Descripción Completa</div>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="p5.png" class="product-img">
-                <h3>Gana Dinero / 13 Págs</h3>
-                <div class="price-tier"><span class="price-box price-soles">S/ 25</span><span style="margin:0 15px; color:#555">ó</span><span class="price-box price-usdt">10 USDT</span></div>
-                <div class="card-actions">
-                    <a href="https://wa.me/51989310143?text=Comprar%20GanaDinero" class="btn-card btn-buy-card">🛒 Comprar</a>
-                    <div class="btn-card" onclick="openM('pago')">💳 Pagos</div>
-                    <div class="btn-card btn-desc-card" onclick="openM('d5')">📄 Descripción Completa</div>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="p6.png" class="product-img">
-                <h3>Método YT Completo</h3>
-                <div class="price-tier"><span class="price-box price-soles">S/ 25</span><span style="margin:0 15px; color:#555">ó</span><span class="price-box price-usdt">10 USDT</span></div>
-                <div class="card-actions">
-                    <a href="https://wa.me/51989310143?text=Comprar%20MetodoYT" class="btn-card btn-buy-card">🛒 Comprar</a>
-                    <div class="btn-card" onclick="openM('pago')">💳 Pagos</div>
-                    <div class="btn-card btn-desc-card" onclick="openM('d6')">📄 Descripción Completa</div>
+                    <a href="https://wa.me/51989310143?text=Comprar%20SMM" class="btn-card btn-buy">🛒 Comprar</a>
+                    <div class="btn-card btn-pay" onclick="openM('pago')">💳 Pagos</div>
+                    <div class="btn-card btn-desc" onclick="openM('d1')">📄 Descripción Completa</div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <div id="pago" class="modal"><div class="modal-content"><h2>MÉTODOS DE PAGO</h2><div class="modal-body">📱 <b>Yape / Plin:</b> Solicitar datos al WhatsApp.
+        <!-- Producto 2 -->
+        <div class="product-card">
+            <div class="card-img-wrap">
+                <img src="p2.png" class="product-img" alt="Método Diamantes FF">
+            </div>
+            <div class="card-body">
+                <div class="card-title">Método Diamantes FF</div>
+                <div class="price-tier">
+                    <span class="price-box price-soles">S/ 15</span>
+                    <span class="price-sep">ó</span>
+                    <span class="price-box price-usdt">6 USDT</span>
+                </div>
+                <div class="card-actions">
+                    <a href="https://wa.me/51989310143?text=Comprar%20FF" class="btn-card btn-buy">🛒 Comprar</a>
+                    <div class="btn-card btn-pay" onclick="openM('pago')">💳 Pagos</div>
+                    <div class="btn-card btn-desc" onclick="openM('d2')">📄 Descripción Completa</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="product-card">
+            <div class="card-img-wrap">
+                <img src="p3.png" class="product-img" alt="YouTube Premium">
+            </div>
+            <div class="card-body">
+                <div class="card-title">YouTube Premium</div>
+                <div class="price-tier">
+                    <span class="price-box price-soles">S/ 11</span>
+                    <span class="price-sep">ó</span>
+                    <span class="price-box price-usdt">4 USDT</span>
+                </div>
+                <div class="card-actions">
+                    <a href="https://wa.me/51989310143?text=Comprar%20YT" class="btn-card btn-buy">🛒 Comprar</a>
+                    <div class="btn-card btn-pay" onclick="openM('pago')">💳 Pagos</div>
+                    <div class="btn-card btn-desc" onclick="openM('d3')">📄 Descripción Completa</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Producto 4 -->
+        <div class="product-card">
+            <div class="card-img-wrap">
+                <img src="p4.png" class="product-img" alt="Canva Pro 3 Años">
+            </div>
+            <div class="card-body">
+                <div class="card-title">Canva Pro 3 Años</div>
+                <div class="price-tier">
+                    <span class="price-box price-soles">S/ 7</span>
+                    <span class="price-sep">ó</span>
+                    <span class="price-box price-usdt">3 USDT</span>
+                </div>
+                <div class="card-actions">
+                    <a href="https://wa.me/51989310143?text=Comprar%20Canva" class="btn-card btn-buy">🛒 Comprar</a>
+                    <div class="btn-card btn-pay" onclick="openM('pago')">💳 Pagos</div>
+                    <div class="btn-card btn-desc" onclick="openM('d4')">📄 Descripción Completa</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Producto 5 -->
+        <div class="product-card">
+            <div class="card-img-wrap">
+                <img src="p5.png" class="product-img" alt="Gana Dinero / 13 Págs">
+            </div>
+            <div class="card-body">
+                <div class="card-title">Gana Dinero / 13 Págs</div>
+                <div class="price-tier">
+                    <span class="price-box price-soles">S/ 25</span>
+                    <span class="price-sep">ó</span>
+                    <span class="price-box price-usdt">10 USDT</span>
+                </div>
+                <div class="card-actions">
+                    <a href="https://wa.me/51989310143?text=Comprar%20GanaDinero" class="btn-card btn-buy">🛒 Comprar</a>
+                    <div class="btn-card btn-pay" onclick="openM('pago')">💳 Pagos</div>
+                    <div class="btn-card btn-desc" onclick="openM('d5')">📄 Descripción Completa</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Producto 6 -->
+        <div class="product-card">
+            <div class="card-img-wrap">
+                <img src="p6.png" class="product-img" alt="Método YT Completo">
+            </div>
+            <div class="card-body">
+                <div class="card-title">Método YT Completo</div>
+                <div class="price-tier">
+                    <span class="price-box price-soles">S/ 25</span>
+                    <span class="price-sep">ó</span>
+                    <span class="price-box price-usdt">10 USDT</span>
+                </div>
+                <div class="card-actions">
+                    <a href="https://wa.me/51989310143?text=Comprar%20MetodoYT" class="btn-card btn-buy">🛒 Comprar</a>
+                    <div class="btn-card btn-pay" onclick="openM('pago')">💳 Pagos</div>
+                    <div class="btn-card btn-desc" onclick="openM('d6')">📄 Descripción Completa</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Producto 7 - CRUNCHYROLL NUEVO -->
+        <div class="product-card">
+            <div class="card-img-wrap">
+                <img src="p7.png" class="product-img" alt="Crunchyroll Perfil x 1 Mes">
+            </div>
+            <div class="card-body">
+                <div class="card-title">Crunchyroll Perfil x 1 Mes</div>
+                <div class="card-subtitle">🔄 Renovable</div>
+                <div class="price-tier">
+                    <span class="price-box price-soles">S/ 7</span>
+                    <span class="price-sep">ó</span>
+                    <span class="price-box price-usdt">2.20 USD</span>
+                </div>
+                <div class="card-actions">
+                    <a href="https://wa.me/51989310143?text=Comprar%20Crunchyroll" class="btn-card btn-buy">🛒 Comprar</a>
+                    <div class="btn-card btn-pay" onclick="openM('pago')">💳 Pagos</div>
+                    <div class="btn-card btn-desc" onclick="openM('d7')">📄 Descripción Completa</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+    © 2025 <span>LLESKIN TECH</span> — Todos los derechos reservados
+</footer>
+
+<!-- ========== MODALES ========== -->
+
+<!-- Pago -->
+<div id="pago" class="modal">
+    <div class="modal-content">
+        <div class="modal-title">💳 Métodos de Pago</div>
+        <div class="modal-body">📱 <b>Yape / Plin:</b> Solicitar datos al WhatsApp.
 💜 <b>Prex PE:</b> Disponible.
-💙 <b>PayPal / 💰 Binance:</b> Aceptados (USDT).</div><button class="btn-close" onclick="closeM('pago')">ENTENDIDO</button></div></div>
+💙 <b>PayPal / 💰 Binance:</b> Aceptados (USDT).</div>
+        <button class="btn-close-modal" onclick="closeM('pago')">ENTENDIDO</button>
+    </div>
+</div>
 
+<!-- D1 -->
 <div id="d1" class="modal">
-        <div class="modal-content">
-            <h2>SMM PANEL - SEGUIDORES</h2>
-            <div class="modal-body">
-                Paneles de seguidores (like, vistas, comentarios) para TikTok, Facebook, Instagram, Kick, YouTube.
-                Para empezar, no solo te daré acceso a un panel, sino a <b>3 paneles diferentes</b> con precios mayoristas.
+    <div class="modal-content">
+        <div class="modal-title">SMM Panel — Seguidores</div>
+        <div class="modal-body">Paneles de seguidores (like, vistas, comentarios) para TikTok, Facebook, Instagram, Kick, YouTube.
+Para empezar, no solo te daré acceso a un panel, sino a <b>3 paneles diferentes</b> con precios mayoristas.
 
-                <b>Incluye:</b>
-                ✅ Videos tutoriales de cómo recargar créditos (mínimo $2 o S/ 7).
-                ✅ Video tutorial de cómo mandar seguidores a las diferentes páginas.
+<b>Incluye:</b>
+✅ Videos tutoriales de cómo recargar créditos (mínimo $2 o S/ 7).
+✅ Video tutorial de cómo mandar seguidores a las diferentes páginas.
 
-                ⚠️ <b>Importante:</b> El uso del panel queda bajo su total responsabilidad 🧾. No nos hacemos responsables por mal uso de las plataformas.
-            </div>
-            <button class="btn-close" onclick="closeM('d1')">CERRAR</button>
-        </div>
+⚠️ <b>Importante:</b> El uso del panel queda bajo su total responsabilidad 🧾.</div>
+        <button class="btn-close-modal" onclick="closeM('d1')">CERRAR</button>
     </div>
+</div>
 
-    <div id="d2" class="modal">
-        <div class="modal-content">
-            <h2>MÉTODO DIAMANTES FF</h2>
-            <div class="modal-body">
-                Método para obtener Diamantes y PB. ¡OJO, ESTO ES UN MÉTODO, YO NO HAGO RECARGAS DIRECTAS! ❗
+<!-- D2 -->
+<div id="d2" class="modal">
+    <div class="modal-content">
+        <div class="modal-title">Método Diamantes FF</div>
+        <div class="modal-body">Método para obtener Diamantes y PB. ¡OJO, ESTO ES UN MÉTODO, YO NO HAGO RECARGAS DIRECTAS! ❗
 
-                💎 <b>Política de Uso del Descuento del 50%:</b>
--110 💎 = S/ 1.67
--341 💎 = S/ 5.07
--572 💎 = S/ 8.07
--1166 💎 = S/ 16.57
--2398 💎 = S/ 32.50
--6160 💎 = S/ 82.50.      Con el método free fire conseguirás diamantes 💎 y pases elite a S/3.40 todos los precios son en soles 🎟️  👆
- Especial para vender diamantes y pase elite
- O vender el método como yo 
-            </div>
-            <button class="btn-close" onclick="closeM('d2')">CERRAR</button>
-        </div>
+💎 <b>Política de Uso del Descuento del 50%:</b>
+- 110 💎 = S/ 1.67
+- 341 💎 = S/ 5.07
+- 572 💎 = S/ 8.07
+- 1166 💎 = S/ 16.57
+- 2398 💎 = S/ 32.50
+- 6160 💎 = S/ 82.50
+
+Con el método conseguirás diamantes 💎 y pases elite a S/3.40.
+✅ Especial para vender diamantes y pase elite
+✅ O vender el método como yo</div>
+        <button class="btn-close-modal" onclick="closeM('d2')">CERRAR</button>
     </div>
+</div>
 
-    <div id="d3" class="modal">
-        <div class="modal-content">
-            <h2>YOUTUBE PREMIUM</h2>
-            <div class="modal-body">
-                YouTube Premium (FAMILIAR) ⚖️ <b>Condiciones de Uso:</b>
+<!-- D3 -->
+<div id="d3" class="modal">
+    <div class="modal-content">
+        <div class="modal-title">YouTube Premium</div>
+        <div class="modal-body">YouTube Premium (FAMILIAR) ⚖️ <b>Condiciones de Uso:</b>
 
-                ✅ <b>Duración:</b> Suscripción válida por 30 días desde la activación.
-                ✅ <b>YouTube Music:</b> Acceso total incluido sin anuncios.
-                ✅ <b>Uso responsable:</b> Prohibido modificar los datos de la cuenta. El mal uso anula la garantía.
-                ✅ <b>Renovación:</b> No es automática; debe solicitarse al finalizar el mes.
-                ✅ <b>Seguridad:</b> Usa un correo nuevo o secundario, sin datos personales sensibles.
-                ✅ <b>Garantía:</b> Soporte total durante todo el mes de servicio.
-            </div>
-            <button class="btn-close" onclick="closeM('d3')">CERRAR</button>
-        </div>
+✅ <b>Duración:</b> Suscripción válida por 30 días desde la activación.
+✅ <b>YouTube Music:</b> Acceso total incluido sin anuncios.
+✅ <b>Uso responsable:</b> Prohibido modificar los datos de la cuenta. El mal uso anula la garantía.
+✅ <b>Renovación:</b> No es automática; debe solicitarse al finalizar el mes.
+✅ <b>Seguridad:</b> Usa un correo nuevo o secundario, sin datos personales sensibles.
+✅ <b>Garantía:</b> Soporte total durante todo el mes de servicio.</div>
+        <button class="btn-close-modal" onclick="closeM('d3')">CERRAR</button>
     </div>
+</div>
 
-    <div id="d4" class="modal">
-        <div class="modal-content">
-            <h2>CANVA PRO - 3 AÑOS</h2>
-            <div class="modal-body">
-                Activación directa a tu correo personal para disfrutar de todo el poder de Canva.
+<!-- D4 -->
+<div id="d4" class="modal">
+    <div class="modal-content">
+        <div class="modal-title">Canva Pro — 3 Años</div>
+        <div class="modal-body">Activación directa a tu correo personal para disfrutar de todo el poder de Canva.
 
-                ✅ <b>Tiempo:</b> Modo PRO habilitado por 3 años garantizados.
-                ✅ <b>IA Magic:</b> Borra fondos y objetos con un solo clic.
-                ✅ <b>Contenido:</b> Más de 100 millones de fotos, videos y elementos premium.
-                ✅ <b>Espacio:</b> 1 TB de almacenamiento en la nube para tus proyectos.
-                ✅ <b>Diseño:</b> Kit de marca y fuentes personalizadas ilimitadas.
-            </div>
-            <button class="btn-close" onclick="closeM('d4')">CERRAR</button>
-        </div>
+✅ <b>Tiempo:</b> Modo PRO habilitado por 3 años garantizados.
+✅ <b>IA Magic:</b> Borra fondos y objetos con un solo clic.
+✅ <b>Contenido:</b> Más de 100 millones de fotos, videos y elementos premium.
+✅ <b>Espacio:</b> 1 TB de almacenamiento en la nube para tus proyectos.
+✅ <b>Diseño:</b> Kit de marca y fuentes personalizadas ilimitadas.</div>
+        <button class="btn-close-modal" onclick="closeM('d4')">CERRAR</button>
     </div>
+</div>
 
-    <div id="d5" class="modal">
-        <div class="modal-content">
-            <h2>GANA DINERO / 13 PÁGINAS</h2>
-            <div class="modal-body">
-                Acceso exclusivo a 13 plataformas oficiales mayoristas para revender servicios digitales.
+<!-- D5 -->
+<div id="d5" class="modal">
+    <div class="modal-content">
+        <div class="modal-title">Gana Dinero / 13 Páginas</div>
+        <div class="modal-body">Acceso exclusivo a 13 plataformas oficiales mayoristas para revender servicios digitales.
 
-                ✅ <b>Streaming:</b> Netflix, Disney+, Spotify, HBO Max, ChatGPT Plus.
-                ✅ <b>Gaming:</b> Licencias originales de Windows, Office, cuentas de Steam y más.
-                ✅ <b>Proveedores:</b> Contacto directo con proveedores verificados para maximizar ganancias.
-                ✅ <b>Guía:</b> Te enseñamos los pasos básicos para empezar tu propio negocio digital.
-            </div>
-            <button class="btn-close" onclick="closeM('d5')">CERRAR</button>
-        </div>
+✅ <b>Streaming:</b> Netflix, Disney+, Spotify, HBO Max, ChatGPT Plus.
+✅ <b>Gaming:</b> Licencias originales de Windows, Office, cuentas de Steam y más.
+✅ <b>Proveedores:</b> Contacto directo con proveedores verificados para maximizar ganancias.
+✅ <b>Guía:</b> Te enseñamos los pasos básicos para empezar tu propio negocio digital.</div>
+        <button class="btn-close-modal" onclick="closeM('d5')">CERRAR</button>
     </div>
+</div>
 
-    <div id="d6" class="modal">
-        <div class="modal-content">
-            <h2>MÉTODO YT COMPLETO</h2>
-            <div class="modal-body">
-                ¡Conviértete en tu propio proveedor de YouTube Premium! 🚀
+<!-- D6 -->
+<div id="d6" class="modal">
+    <div class="modal-content">
+        <div class="modal-title">Método YT Completo</div>
+        <div class="modal-body">¡Conviértete en tu propio proveedor de YouTube Premium! 🚀
 
-                ✅ <b>Cuentas ilimitadas:</b> Crea tus propias cuentas familiares sin límites.
-                ✅ <b>Activación:</b> Aprende a activar el servicio directamente a correos electrónicos.
-                ✅ <b>YouTube Music:</b> Incluido en todas las cuentas que generes.
-                ✅ <b>Cero Anuncios:</b> Disfruta en TV, celular, PC y cualquier dispositivo.
-                ✅ <b>Método Seguro:</b> Explicación paso a paso para evitar caídas de cuentas.
-            </div>
-            <button class="btn-close" onclick="closeM('d6')">CERRAR</button>
-        </div>
+✅ <b>Cuentas ilimitadas:</b> Crea tus propias cuentas familiares sin límites.
+✅ <b>Activación:</b> Aprende a activar el servicio directamente a correos electrónicos.
+✅ <b>YouTube Music:</b> Incluido en todas las cuentas que generes.
+✅ <b>Cero Anuncios:</b> Disfruta en TV, celular, PC y cualquier dispositivo.
+✅ <b>Método Seguro:</b> Explicación paso a paso para evitar caídas de cuentas.</div>
+        <button class="btn-close-modal" onclick="closeM('d6')">CERRAR</button>
     </div>
+</div>
 
-    <script>
-        function openM(id){ document.getElementById(id).style.display='block'; }
-        function closeM(id){ document.getElementById(id).style.display='none'; }
-        window.onclick=function(e){ if(e.target.className==='modal'){e.target.style.display='none';} }
-    </script>
+<!-- D7 - CRUNCHYROLL -->
+<div id="d7" class="modal">
+    <div class="modal-content">
+        <div class="modal-title">⚡ Crunchyroll Mega Fan ⚡</div>
+        <div class="modal-body">El plan premium diseñado para los verdaderos amantes del anime que quieren disfrutar al máximo sin límites.
+
+🚀 <b>¿Qué incluye Crunchyroll Mega Fan?</b>
+
+✅ <b>Anime sin anuncios:</b> Disfruta de todos los episodios y películas sin interrupciones publicitarias en cualquier momento.
+✅ <b>Simulcasts exclusivos:</b> Acceso a los episodios más nuevos de Japón casi al mismo tiempo que su estreno oficial.
+✅ <b>Visualización sin conexión:</b> Descarga tus series favoritas y míralas donde quieras sin gastar tus datos.
+✅ <b>Multidispositivo:</b> Disfruta de todo el contenido en hasta 4 dispositivos en simultáneo.</div>
+        <button class="btn-close-modal" onclick="closeM('d7')">CERRAR</button>
+    </div>
+</div>
+
+<script>
+    function openM(id) {
+        document.getElementById(id).classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeM(id) {
+        document.getElementById(id).classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    window.addEventListener('click', function(e) {
+        if (e.target.classList.contains('modal')) {
+            e.target.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // smooth scroll for hero button
+    document.querySelector('a[href="#productos"]').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
+    });
+</script>
 </body>
 </html>
